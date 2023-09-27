@@ -1,0 +1,31 @@
+build:
+  accelerator: gpu
+  architecture: linux/amd64
+  components:
+    custom_packages:
+      atp:
+      - vim
+      - python3.9
+      - vim
+      - python3.9
+      pypi: []
+    engine: pytorch
+  os: ubuntu
+  target_name: ultralytics/yolo5:v6.1
+deploy:
+  entrypoint:
+  - /bin/bash
+  - -c
+  k8s:
+    nfs_ip: 192.168.0.181
+    nfs_path: /var/lib/docker/volumes/tango_shared/_data
+  network:
+    service_container_port: 30021
+    service_host_ip: 192.168.0.181
+    service_host_port: 30021
+  type: docker
+  workdir: /test/test
+optional:
+  annotation_file: coco128.yaml
+  nn_file: detect.py
+  weight_file: yolov5s.pt
