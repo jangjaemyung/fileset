@@ -88,13 +88,13 @@ if __name__ == '__main__':
     # server = HTTPServer(('', def_port), MyHandler)
     print("Started neural net service...")
     print("Press ^C to quit WebServer")
-    m_deploy_obj = YoloService()
-    m_deploy_obj.run()
+    # m_deploy_obj = YoloService()
+    # m_deploy_obj.run()
 
-    # try:
-    #     server.serve_forever()
-    # except KeyboardInterrupt as e:
-    #     time.sleep(1)
-    #     server.socket.close()
-    #     print("neural net service  End", e)
+    try:
+        server.serve_forever()
+    except KeyboardInterrupt as e:
+        time.sleep(1)
+        server.socket.close()
+        print("neural net service  End", e)
 
