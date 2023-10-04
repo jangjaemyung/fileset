@@ -85,7 +85,7 @@ class MyHandler(SimpleHTTPRequestHandler):
 ####################################################################
 ####################################################################
 if __name__ == '__main__':
-    # server = HTTPServer(('', def_port), MyHandler)
+    server = HTTPServer(('', def_port), MyHandler)
     print("Started neural net service...")
     print("Press ^C to quit WebServer")
     # m_deploy_obj = YoloService()
