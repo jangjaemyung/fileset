@@ -5,7 +5,7 @@ import requests
 from http.server import HTTPServer, SimpleHTTPRequestHandler
 import detect
 import os
-def_port = 8901
+def_port = 8902
 
 ##################################################################
 # code for neural network
@@ -64,12 +64,12 @@ class MyHandler(SimpleHTTPRequestHandler):
         print("cmd =", cmd)
 
         if cmd == "run":
-            buf = self.m_deploy_obj.run()
+            self.m_deploy_obj.run()
             self.send_response(200, 'ok')
             self.send_cors_headers()
             self.send_header("Content-Type", "text/plain")
             self.end_headers()
-            self.wfile.write(buf.encode())
+            # self.wfile.write(buf.encode())
             
         elif cmd == "stop":
             buf = "end"
